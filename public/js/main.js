@@ -1,6 +1,10 @@
 // Get the current lab from the URL
 function getCurrentLab() {
-    return window.location.pathname.includes('lab2') ? 'lab2' : 'lab1';
+    const path = window.location.pathname;
+    if (path.includes('lab1')) return 'lab1';
+    if (path.includes('lab2')) return 'lab2';
+    if (path.includes('lab3')) return 'lab3';
+    return 'lab1'; // default
 }
 
 async function login() {

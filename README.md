@@ -16,6 +16,13 @@ Shows how weak secrets in JWT signatures can be exploited. Users can:
 - Crack the weak signature using tools like hashcat
 - Forge new tokens with elevated privileges
 
+### Lab 3: KID Directory Traversal
+Demonstrates how the Key ID (KID) header parameter can be exploited for directory traversal attacks. Users can:
+- Login as a regular user
+- Modify the JWT header to use a public file as the key
+- Sign tokens using known file contents
+- Access admin data using the forged token
+
 ## Setup
 1. Clone the repository
 2. Install dependencies:
@@ -56,6 +63,13 @@ Shows how weak secrets in JWT signatures can be exploited. Users can:
    ```
 4. Create a new token with admin privileges using the cracked secret
 
+### Lab 3: KID Directory Traversal Attack
+1. Login as regular user
+2. Get the JWT token
+3. Create a new token with modified header pointing to public CSS file
+4. Sign the token using the CSS file contents
+5. Use the modified token to access admin data
+
 ## Warning
 ⚠️ This is a deliberately vulnerable application for educational purposes only. Do not use this code in production.
 
@@ -72,3 +86,4 @@ Feel free to contribute additional labs or improvements via pull requests.
 
 ## License
 This project is for educational purposes only. Use at your own risk.
+

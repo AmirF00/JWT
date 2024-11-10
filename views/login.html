@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Login - JWT Labs</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="container">
         <h1>Login</h1>
+        <div class="lab-info">
+            <h2 id="lab-title">Loading...</h2>
+        </div>
         <div class="login-form">
             <input type="text" id="username" placeholder="Username">
             <input type="password" id="password" placeholder="Password">
@@ -16,7 +19,25 @@
             <h2>Profile Data</h2>
             <pre id="profile-data"></pre>
         </div>
+        <div class="navigation">
+            <a href="/">Back to Labs</a>
+        </div>
     </div>
+    <script>
+        // Set the lab title based on the current URL
+        document.addEventListener('DOMContentLoaded', () => {
+            const path = window.location.pathname;
+            const labTitle = document.getElementById('lab-title');
+            
+            if (path.includes('lab1')) {
+                labTitle.textContent = 'Lab 1: None Algorithm Vulnerability';
+            } else if (path.includes('lab2')) {
+                labTitle.textContent = 'Lab 2: Weak Signature Attack';
+            } else if (path.includes('lab3')) {
+                labTitle.textContent = 'Lab 3: KID Directory Traversal';
+            }
+        });
+    </script>
     <script src="/js/main.js"></script>
 </body>
 </html> 
