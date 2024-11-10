@@ -1,0 +1,24 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.lab-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    margin: 20px 0;
+}
+
+input, button {
+    padding: 10px;
+} 
