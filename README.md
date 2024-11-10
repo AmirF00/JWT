@@ -1,41 +1,56 @@
-# JWT Security Vulnerability Labs
+# JWT Security Vulnerability Labs 🔐
 
-This project demonstrates various JWT (JSON Web Token) authentication vulnerabilities for educational purposes. Currently, it includes two labs focusing on different attack vectors.
+A comprehensive collection of JWT (JSON Web Token) security vulnerabilities for educational purposes. This project demonstrates various attack vectors and common implementation mistakes in JWT authentication.
 
-## Labs Available
+## 🎯 Labs Available
 
 ### Lab 1: None Algorithm Vulnerability
-Demonstrates how a misconfigured JWT implementation can be exploited using the 'none' algorithm attack. Users can:
-- Login as a regular user
-- Modify the JWT to bypass signature verification
-- Access admin data without proper authorization
+Demonstrates how a misconfigured JWT implementation can be exploited using the 'none' algorithm attack.
+- Vulnerability: Accepting 'none' as a valid algorithm
+- Attack Vector: Algorithm header manipulation
+- Impact: Authentication bypass
 
 ### Lab 2: Weak Signature Attack
-Shows how weak secrets in JWT signatures can be exploited. Users can:
-- Login as a regular user
-- Crack the weak signature using tools like hashcat
-- Forge new tokens with elevated privileges
+Shows how weak secrets in JWT signatures can be exploited.
+- Vulnerability: Using weak secret keys
+- Attack Vector: Brute force attack on signature
+- Impact: Token forgery
 
 ### Lab 3: KID Directory Traversal
-Demonstrates how the Key ID (KID) header parameter can be exploited for directory traversal attacks. Users can:
-- Login as a regular user
-- Modify the JWT header to use a public file as the key
-- Sign tokens using known file contents
-- Access admin data using the forged token
+Explores how the Key ID header parameter can be exploited for directory traversal.
+- Vulnerability: Unsanitized file path in KID header
+- Attack Vector: Directory traversal via KID parameter
+- Impact: Arbitrary file read, token forgery
 
-## Setup
-1. Clone the repository
-2. Install dependencies:
-   ```
-   npm install 
-   ```
-3. Run the server:
-   ```
-   npm start
-   ```
-4. Visit `http://localhost:3001`
+### Lab 4: JKU Header Injection
+Demonstrates vulnerabilities in JWK Set URL handling.
+- Vulnerability: Unvalidated JKU header
+- Attack Vector: Malicious JWK Set hosting
+- Impact: Token forgery using attacker-controlled keys
 
-## Test Users
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone [your-repo-url]
+
+# Install dependencies
+npm install
+
+# Start the server
+node server.js
+```
+
+### Access
+Visit `http://localhost:3001` in your browser
+
+## 🔑 Test Credentials
 - Regular User
   - Username: user
   - Password: user
@@ -43,7 +58,7 @@ Demonstrates how the Key ID (KID) header parameter can be exploited for director
   - Username: admin
   - Password: password
 
-## Exploitation Guides
+## 💥 Exploitation Guides
 
 ### Lab 1: None Algorithm Attack
 1. Login as regular user
@@ -70,20 +85,39 @@ Demonstrates how the Key ID (KID) header parameter can be exploited for director
 4. Sign the token using the CSS file contents
 5. Use the modified token to access admin data
 
-## Warning
-⚠️ This is a deliberately vulnerable application for educational purposes only. Do not use this code in production.
+### Lab 4: JKU Header Injection Attack
+1. Login as regular user
+2. Get the JWT token
+3. Create a new token with modified JKU header pointing to malicious JWK Set
+4. Sign the token using the malicious JWK Set keys
+5. Use the modified token to access admin data
 
-## Security Notes
-In a real application, you should:
+## 🔒 Security Notes
+⚠️ **WARNING**: This application is deliberately vulnerable and for educational purposes only.
+
+In a production environment, you should:
 - Never accept the 'none' algorithm
-- Use strong, random secrets for JWT signatures
+- Use strong, randomly generated secrets
 - Implement proper signature verification
-- Use appropriate role-based access control
-- Consider using proper session management
+- Validate and sanitize all header parameters
+- Implement proper key management
+- Use appropriate access controls
 
-## Contributing
-Feel free to contribute additional labs or improvements via pull requests.
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit pull requests.
 
-## License
+## 📝 License
 This project is for educational purposes only. Use at your own risk.
+
+## ⚠️ Disclaimer
+This project contains intentionally vulnerable code. Do not use any of this code in production environments.
+
+## 🙏 Acknowledgments
+- JWT.io for JWT debugging tools
+- Node-JOSE for JWT/JWK functionality
+- Express.js team
+
+---
+Created with ❤️ for educational purposes
+
 
