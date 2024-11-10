@@ -61,6 +61,7 @@ commnad: `python3 jwt_tool.py <JWT> -S hs256 -k pubkey.pem`
 
 #### References:
 - [write-up](https://medium.com/@0x_xnum/all-about-jwt-vulnerabilities-ef7314c4dd02) - All about JWT Vulnerabilities
+- [wordlist for bruteforce](https://github.com/wallarm/jwt-secrets/blob/master/jwt.secrets.list) - Wordlist for bruteforce
 - 
 
 
