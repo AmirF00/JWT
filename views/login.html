@@ -23,6 +23,7 @@
             <a href="/">Back to Labs</a>
         </div>
     </div>
+    
     <script>
         // Set the lab title based on the current URL
         document.addEventListener('DOMContentLoaded', () => {
@@ -35,6 +36,8 @@
                 labTitle.textContent = 'Lab 2: Weak Signature Attack';
             } else if (path.includes('lab3')) {
                 labTitle.textContent = 'Lab 3: KID Directory Traversal';
+            } else if (path.includes('lab4')) {
+                labTitle.textContent = 'Lab 4: JKU Header Injection';
             }
         });
     </script>

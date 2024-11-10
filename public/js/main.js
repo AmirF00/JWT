@@ -1,9 +1,12 @@
 // Get the current lab from the URL
 function getCurrentLab() {
     const path = window.location.pathname;
+    console.log('Current path:', path); // Debug log
+    
     if (path.includes('lab1')) return 'lab1';
     if (path.includes('lab2')) return 'lab2';
     if (path.includes('lab3')) return 'lab3';
+    if (path.includes('lab4')) return 'lab4';
     return 'lab1'; // default
 }
 
@@ -11,6 +14,8 @@ async function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const lab = getCurrentLab();
+    
+    console.log('Logging in to lab:', lab); // Debug log
 
     try {
         const response = await fetch(`/api/login/${lab}`, {
@@ -36,6 +41,8 @@ async function fetchProfile() {
     const token = localStorage.getItem('token');
     const lab = localStorage.getItem('currentLab');
     
+    console.log('Fetching profile for lab:', lab); // Debug log
+    
     try {
         const response = await fetch(`/api/profile/${lab}`, {
             headers: {
@@ -50,3 +57,4 @@ async function fetchProfile() {
         console.error('Failed to fetch profile:', err);
     }
 } 
+
